@@ -2,7 +2,6 @@ variable "name" {}
 variable "internal" {}
 variable "load_balancer_type" {}
 variable "subnets" {}
-variable "component" {}
 variable "env" {}
 variable "tags" {}
 variable "vpc_id" {}
