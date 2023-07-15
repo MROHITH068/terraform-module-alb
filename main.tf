@@ -1,6 +1,6 @@
 resource "aws_security_group" "main" {
-  name        = "${var.component}-${var.env}-sg"
-  description = "${var.component}-${var.env}-sg"
+  name        = "${var.name}-${var.env}-sg"
+  description = "${var.name}-${var.env}-sg"
   vpc_id = var.vpc_id
   ingress {
     from_port        = var.port
@@ -17,7 +17,7 @@ resource "aws_security_group" "main" {
   }
 
   tags = merge({
-    Name = "${var.component}-${var.env}-sg"
+    Name = "${var.name}-${var.env}-sg"
   }, var.tags)
 }
 
@@ -28,5 +28,5 @@ resource "aws_lb" "main" {
   security_groups    = [aws_security_group.main.id]
   subnets            = var.subnets
 
-  tags = merge({Name = "${var.component}-${var.env}"}, var.tags)
+  tags = merge({Name = "${var.name}-${var.env}"}, var.tags)
 }
